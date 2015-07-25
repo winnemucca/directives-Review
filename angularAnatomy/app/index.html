@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+<meta charset="UTF-8">
+<title>AngularJS Demo</title>
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css"/>
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<!-- <div class="checkbox well">
+	<label>
+		<input type="checkbox" ng-model="todos[2].complete"  />
+		item 3 is complete
+	</label>
+</div> -->
+<body ng-controller="defaultCtrl">
+
+	<div id ="todoPanels"class="well" tap="message ='Tapped!'">
+		{{message}}
+	</div>
+
+	<div class="checkbox well">
+		<label>
+			<input type="checkbox" ng-model="dataValue"/>
+			Set the data value
+		</label>
+	</div>
+
+	<button class="btn btn-success" ng-disabled="dataValue">My Button</button>
+
+<!-- <div class="row well">
+	<div class="col-xs-6" ng-repeat="(key,val) in settings">
+		<h4>{{key}}</h4>
+		<div class="radio" ng-repeat="button in buttonNames">
+			<label>
+				<input type="radio" ng-model="settings[key]" value="{{button}}" />{{button}}
+			</label>
+		</div>
+	</div> -->
+	<!-- <table class="table table-striped">
+	    <thead>
+		    <tr>
+		    	<th>#</th>
+		        <th>Action</th>
+		        <th>Done</th>
+		    </tr>
+	    </thead>
+	    <tr ng-repeat="item in todos"  ng-class-even="settings.Rows" 
+	    		ng-class-odd="settings.Columns">
+	        <td>{{$index + 1}}</td>
+	        <td ng-repeat="prop in item">{{prop}}</td>
+	        <td> 
+		        <span ng-if="!item.complete">(incomplete)</span>
+		        <span ng-if="item.complete">(done)</span>
+	        </td>
+	    </tr>
+	</table> -->
+
+	<!-- <div class="well">
+		<span ng-repeat="button in buttonNames">
+			<button class="btn btn-info" ng-click="data.rowColor = button">
+				{{button}}
+			</button>
+		</span>
+	</div>
+
+   <table class="table table-striped">
+	    <thead>
+		    <tr>
+		    	<th>#</th>
+		        <th>Action</th>
+		        <th>Done</th>
+		    </tr>
+	    </thead>
+	    <tr ng-repeat="item in todos"  ng-class="data.rowColor" 
+	    		ng-mouseenter="handleEvent($event)" ng-mouseleave="handleEvent($event)">
+	        <td>{{$index + 1}}</td>
+	        <td >{{item.action}}</td>
+	        <td ng-class="data.columnColor">{{item.complete}}</td> 
+		       
+	    </tr>
+	</table>
+ -->
+       
+<script type="text/javascript"src="./bower_components/jquery/dist/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./bower_components/underscore/underscore.js"></script>
+<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

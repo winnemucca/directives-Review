@@ -1,0 +1,9 @@
+/*td > *:first-child {font-weight: bold};*/
+
+td:first-child{
+	font-weight: bold;
+}
+
+tr.Red{background-color: lightcoral;}
+tr.Green{background-color: lightgreen;}
+tr.Blue{background-color: lightblue;}
