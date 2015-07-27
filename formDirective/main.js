@@ -11,38 +11,65 @@ angular.module('myApp',[]).
        'Han',
        'Leia',
        'Chewbacca'
-       ]
+       ],
+       level: 0
     }
 
     $scope.user2 = {
-    name: 'Hans Solo',
-     address: {
-       street: '2324234',
-       city: 'I don\'t need one son',
-       planet: 'Yavin 4'
-     },
-     friends : [
-       'Han',
-       'Leia',
-       'Chewbacca'
-       ]
-    }
-    console.log($scope);
+      name: 'Hans Solo',
+       address: {
+         street: '2324234',
+         city: 'I don\'t need one son',
+         planet: 'Yavin 4'
+       },
+       friends : [
+         'Han',
+         'Leia',
+         'Chewbacca'
+         ],
+         level: 1
+      }
+      console.log($scope);
 
   
 })
+  .directive('stateDisplay', function() {
+    return {
+      restrict: 'A',
+      link:function(scope, el, attrs) {
+        scope.$watch(attrs['stateDisplay'], function(newVal){
+
+          switch(newVal) {
+            case 0:
+              el.css('background-color', 'white');
+              break;
+            case 1:
+              el.css('background-color', 'yellow');
+              break;
+            case 2:
+              el.css('background-color', 'red');
+              break;
+         }
+        });
+      }
+    }
+  })
   .directive('userInfoCard', function(){
     return {
       templateUrl: 'templates/userInfoCard.html',
       restrict: 'E',
       scope: {
-        user: '=person',
+        user: '=',
         // @ tells in angular that we are passing in a simple data value @collapsed is the attribute name 
         initialCollapsed: '@collapsed'
       },
       controller: function($scope) {
         // important because collapsed has changed our value to a string
-        $scope.collapsed= ($scope.initialCollapsed = "true");
+        $scope.collapsed= ($scope.initialCollapsed === "true");
+         $scope.nextState = function() {
+          $scope.user.level++;
+          $scope.user.level = scope.user.level %3;
+        }
 
         $scope.knightMe = function(user) {
           user.rank = "knight";

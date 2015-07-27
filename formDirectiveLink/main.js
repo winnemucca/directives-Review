@@ -6,10 +6,12 @@ app.controller('mainCtrl', function($scope) {
 	// 	data.message = "i have been clicked";
 	// }
 
-	$scope.user1 = {
-		name: 'Luke',
-		selected: false
-	}
+	// $scope.user1 = {
+	// 	name: 'Luke',
+	// 	selected: false
+	// }
+
+	// $scope.size= 150;
 });
 
 // app.directive('myClick', function($parse) {
@@ -47,5 +49,22 @@ app.directive('userClickSelect',function() {
 				scope.$apply();
 			})
 		}
+	}
+})
+
+app.directive('fontScale', function() {
+	return {
+		link:function(scope, el, attrs) {
+			scope.$watch(attrs['fontScale'], function(newValue) {
+				el.css('font-size', newValue + '%');
+			})
+		}
+	}
+})
+
+
+app.directive('removeFriend', function() {
+	return {
+
 	}
 })

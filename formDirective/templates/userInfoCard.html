@@ -1,10 +1,9 @@
 <div class="panel panel-primary">
 	<div class="panel-heading" ng-click="collapse()">Name: {{user.name}}</div>
-	<div class="panel-body" ng-hide="collapsed">
+	<div class="panel-body" state-display="user.level" ng-hide="collapsed">
 		<address></address>
 
 		<h4>Friends</h4>
-		<div>
 			<ul>
 			  <li ng-repeat="friend in user.friends"> 
 			    {{friend}}
@@ -16,7 +15,7 @@
 				Rank: {{user.rank}}
 			</div>
 			<button ng-show="!user.rank" class="btn btn-success" ng-click="knightMe(user)">Knight Me</button>
+			<button class="btn btn-info" ng-click="nextState()">Next state</button>
 
-		</div>
 	</div>
 </div>

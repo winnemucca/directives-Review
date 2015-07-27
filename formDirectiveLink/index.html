@@ -12,9 +12,29 @@
 
     <h3>{{data.message}} </h3> -->
 
-    <user-tile user="user1"></user-tile>
-   
+    <!-- <user-tile user="user1"></user-tile> -->
+   <!-- <div> unscaled text </div>
+   <div font-scale="size"> I'm some text</div>
+   <input type="number"ng-model="size"/>  -->
 
+
+  <div class="panel panel-primary">
+    <div class="panel-panel-heading" ng-click="collapse()"> {{user.name}}</div>
+    <div class="panel-body" ng-hide="collapsed">
+
+      <h4>Friends </h4>
+        <ul>
+         <li ng-repeat="friend in user.friends">{{friend}}</li>
+        </ul>
+
+        <div ng-show="!!user.rank"> 
+          Rank {{user.rank}}
+        </div>
+        <button ng-show="!user.rank" class="btn btn-success" ng-click="knightMe(user)">Knight Me</button>
+        <button ng-show="!user.rank" class="btn btn-success" ng-click="nextState()">Next State</button>
+
+     </div>
+  </div>
     
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
